@@ -12,7 +12,7 @@ import java.util.Set;
  * <p>
  * Invariants for this class are, that none of the attributes are null and that the set of walls does not contain any null elements.
  *
- * @author (your name)
+ * @author Marvin Spiegel, Ismail Ratni
  */
 public final class HouseBuilder {
 
@@ -28,8 +28,10 @@ public final class HouseBuilder {
 	 *
 	 * @param territoryBuilder Builder of the territory, required to place the
 	 *                         walls.
+	 * @param territory        The territory itself, required to check it the house
+	 *                         to be build is valid.
 	 */
-	public HouseBuilder(final de.hamstersimulator.objectsfirst.external.model.TerritoryBuilder territoryBuilder) {
+	public HouseBuilder(final TerritoryBuilder territoryBuilder, final Territory territory) {
 		if (territoryBuilder == null || territory == null) {
 			throw new IllegalArgumentException("Neither Territory nor Builder may be null, but one of them is.");
 		}
@@ -100,7 +102,7 @@ public final class HouseBuilder {
 	 * @param wall the housewall to be put on the territory.
 	 */
 	private void buildWall(final HouseWall wall) {
-	assert wall != null;
+		assert wall != null;
 		if (wall.isVertical()) {
 			/*@
 			@ loop_invariant checked for i tiles, whether they are free

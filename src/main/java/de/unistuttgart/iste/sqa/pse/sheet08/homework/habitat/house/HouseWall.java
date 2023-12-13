@@ -44,7 +44,18 @@ public final class HouseWall {
 	 * @param end   location of the wall's last part
 	 */
 	public HouseWall(final Location start, final Location end) {
-		// TODO implement exercise 2 (b) here.
+		if (start == null || end == null) {
+			throw new IllegalArgumentException("Parameters must not be null.");
+		}
+		if (start.equals(end)) {
+			throw new IllegalArgumentException("Start and end must not be the same location.");
+		}
+		if (!areInLine(start, end)) {
+			throw new IllegalArgumentException("Start and end must be in line.");
+		}
+		if (!isStartSmallerThanEnd(start, end)) {
+			throw new IllegalArgumentException("Start must be closer to the origin than end.");
+		}
 
 		this.start = start;
 		this.end = end;
@@ -64,7 +75,16 @@ public final class HouseWall {
 	 * @param newDoor door to be added into the housewall.
 	 */
 	public void addDoor(final Location newDoor) {
-		// TODO implement exercise 2 (c) here.
+		if (newDoor == null) {
+			throw new IllegalArgumentException("Parameter must not be null.");
+		}
+		if (this.door.isPresent()) {
+			throw new IllegalStateException("Housewall already has a door.");
+		}
+		if (!isValidDoorOnVerticalWall(newDoor) && !isValidDoorOnHorizontalWall(newDoor)) {
+			throw new IllegalArgumentException("Door must be in between start and end.");
+		}
+		this.door = Optional.of(newDoor);
 	}
 
 	/**

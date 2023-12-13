@@ -16,11 +16,10 @@ public final class HabitatHamsterGame extends SimpleHamsterGame {
 	public HabitatHamsterGame() {
 		this.loadTerritoryFromResourceFile("/territories/habitatTerritory.ter");
 
-		TerritoryBuilder territoryBuilder = game.getNewTerritoryBuilder();
+		de.hamstersimulator.objectsfirst.external.model.TerritoryBuilder territoryBuilder = game.getNewTerritoryBuilder();
 
-		// TODO Implement exercise 2 (d) between here...
+		de.unistuttgart.iste.sqa.pse.sheet08.homework.habitat.house.HouseBuilder houseBuilder = new de.unistuttgart.iste.sqa.pse.sheet08.homework.habitat.house.HouseBuilder(territoryBuilder);
 
-		// ...and here. Do NOT put any code after here.
 
 		game.initialize(territoryBuilder);
 		game.startGame();

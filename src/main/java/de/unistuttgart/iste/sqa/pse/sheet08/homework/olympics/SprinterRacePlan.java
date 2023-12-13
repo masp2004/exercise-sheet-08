@@ -1,14 +1,16 @@
 package de.unistuttgart.iste.sqa.pse.sheet08.homework.olympics;
 
 /**
- * TODO write documentation here.
+ * This class manages the Sprinter Race Plan.
  *
- * @author your name
+ * @author Marvin Spiegel, Ismail Ratni
  */
 public final class SprinterRacePlan implements RacePlan {
 
 	@Override
 	public void nextStep(final RunnerHamster hamster) {
-		// put your code for task (c) here
+		while (!hamster.hasFinished()) {
+			hamster.executeNextAction();
+		}
 	}
 }

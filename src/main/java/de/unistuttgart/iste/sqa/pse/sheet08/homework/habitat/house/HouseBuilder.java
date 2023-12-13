@@ -28,10 +28,8 @@ public final class HouseBuilder {
 	 *
 	 * @param territoryBuilder Builder of the territory, required to place the
 	 *                         walls.
-	 * @param territory        The territory itself, required to check it the house
-	 *                         to be build is valid.
 	 */
-	public HouseBuilder(final TerritoryBuilder territoryBuilder, final Territory territory) {
+	public HouseBuilder(final de.hamstersimulator.objectsfirst.external.model.TerritoryBuilder territoryBuilder) {
 		if (territoryBuilder == null || territory == null) {
 			throw new IllegalArgumentException("Neither Territory nor Builder may be null, but one of them is.");
 		}
@@ -102,7 +100,24 @@ public final class HouseBuilder {
 	 * @param wall the housewall to be put on the territory.
 	 */
 	private void buildWall(final HouseWall wall) {
-		// TODO implement exercise 2 (e) here.
+	assert wall != null;
+		if (wall.isVertical()) {
+			/*@
+			@ loop_invariant checked for i tiles, whether they are free
+			@ decreasing wall.getStart().getRow() - i
+			@*/
+			for (int i = wall.getStart().getRow(); i < wall.getEnd().getRow(); i++) {
+				territoryBuilder.wallAt(Location.from(i, wall.getStart().getColumn()));
+			}
+		} else {
+			/*@
+			@ loop_invariant checked for i tiles, whether they are free
+			@ decreasing wall.getStart().getColumn() - i
+			@*/
+			for (int i = wall.getStart().getColumn(); i < wall.getEnd().getColumn(); i++) {
+				territoryBuilder.wallAt(Location.from(wall.getStart().getRow(), i));
+			}
+		}
 	}
 
 	/**

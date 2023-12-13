@@ -28,9 +28,13 @@ public final class House {
 	 * @return doors of the house.
 	 */
 	public Set<Door> getDoors() {
-
-		return Set.of(); // TODO remove this line if necessary.
+		Set<Door> doors = new java.util.HashSet<>();
+		for (HouseWall wall : walls) {
+			wall.getDoor().ifPresent(doors::add);
+		}
+		return doors;
 	}
+
 
 	/**
 	 * Creates a new house with the specified walls.

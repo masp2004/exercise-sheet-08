@@ -18,7 +18,24 @@ public final class HabitatHamsterGame extends SimpleHamsterGame {
 
 		TerritoryBuilder territoryBuilder = game.getNewTerritoryBuilder();
 
-		// TODO Implement exercise 2 (d) between here...
+		territoryBuilder.wallAt(new Location(1, 1));
+		territoryBuilder.wallAt(new Location(1, 2));
+		territoryBuilder.wallAt(new Location(1, 4));
+		territoryBuilder.wallAt(new Location(1, 5));
+		territoryBuilder.wallAt(new Location(1, 6));
+		territoryBuilder.wallAt(new Location(1, 7));
+		territoryBuilder.wallAt(new Location(2, 1));
+		territoryBuilder.wallAt(new Location(2, 7));
+		territoryBuilder.wallAt(new Location(2, 8));
+		territoryBuilder.wallAt(new Location(2, 9));
+		territoryBuilder.wallAt(new Location(2, 10));
+		territoryBuilder.wallAt(new Location(3, 1));
+		territoryBuilder.wallAt(new Location(3, 10));
+		territoryBuilder.wallAt(new Location(4, 1));
+		territoryBuilder.wallAt(new Location(5, 1));
+		territoryBuilder.wallAt(new Location(5, 10));
+		territoryBuilder.wallAt(new Location(6, 1));
+		territoryBuilder.wallAt(new Location(6, 2));
 
 		// ...and here. Do NOT put any code after here.
 

@@ -30,7 +30,7 @@ public final class House {
 	public Set<Door> getDoors() {
 		Set<Door> doors = new java.util.HashSet<>();
 		for (HouseWall wall : walls) {
-			wall.getDoor().ifPresent(doors::add);
+			wall.getDoor().ifPresent(door -> doors.add(door)); // Assuming getDoor returns Optional<Door>
 		}
 		return doors;
 	}

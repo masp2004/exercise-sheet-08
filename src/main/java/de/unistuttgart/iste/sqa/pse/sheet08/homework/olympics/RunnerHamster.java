@@ -38,6 +38,9 @@ public final class RunnerHamster extends Hamster {
 	 * Requires that the hamster has least three energy points. Ensures that the
 	 * hamster moves three steps. In case of walls, the hamster turns. Ensures that
 	 * the hamster's energy point decrease by three.
+	 *
+	 * @throws IllegalStateException If the Precondition is violated, i.e if the
+	 *                               Hamster has insufficient energy points left.
 	 */
 	public void runHard() {
 		if (energyRemaining < 3) throw new IllegalStateException("There are not enough energy points left to do this.");
@@ -57,6 +60,9 @@ public final class RunnerHamster extends Hamster {
 	 * Requires that the hamster has least one energy point. Ensures that the
 	 * hamster moves two steps. In case of walls, the hamster turns. Ensures that
 	 * the hamster's energy point decrease by one.
+	 *
+	 * @throws IllegalStateException If the Precondition is violated, i.e if the
+	 *                               Hamster has insufficient energy points left.
 	 */
 	public void runSteadily() {
 		if (energyRemaining < 1) {
@@ -87,6 +93,9 @@ public final class RunnerHamster extends Hamster {
 	 * Requires that the hamster stands on a feeding zone (check by calling
 	 * isAtFeedingZone() beforehand). Ensures that the hamster picks up a grain and
 	 * has an additional five energy points after execution.
+	 *
+	 * @throws IllegalStateException If the Precondition is violated, i.e if Hamster
+	 *                               does not stand on a feeding zone.
 	 */
 	public void useFeedZone() {
 		if (!grainAvailable()) {

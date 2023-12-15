@@ -2,7 +2,7 @@ package de.unistuttgart.iste.sqa.pse.sheet08.homework.habitat.game;
 
 /**
  * Executes the habitat game.
- * @author your name
+ * @author Marvin Spiegel, Ismail Ratni
  */
 public final class HabitatHamsterGameApp {
 	public static void main(String[] args) {
